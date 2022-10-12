@@ -25,7 +25,7 @@ pipeline {
 
         stage('Deploy to nginx') {
             steps {  
-                sh    'docker run --name nginx${BUILD_NUMBER} -d -p 802${BUILD_NUMBER}:80 pranaychander/nginx'
+                sh    'docker run --name nginx${BUILD_NUMBER} -d -p 802${BUILD_NUMBER}:80 nginx'
             }
         }
 
