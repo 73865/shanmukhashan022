@@ -10,7 +10,7 @@ pipeline {
 
         stage('Build Docker Image') {
             steps {
-              sh 'docker build -t kankaranagendrareddy/nginx:${BUILD_NUMBER} .'
+              sh 'docker build -t pranaychander/nginx .'
               }
         }
         stage('Push Docker image') {
@@ -19,19 +19,19 @@ pipeline {
             }
             steps {
                 sh 'docker login --username=$DOCKER_HUB_LOGIN_USR --password=$DOCKER_HUB_LOGIN_PSW'
-                sh    'docker push kankaranagendrareddy/nginx:${BUILD_NUMBER}'
+                sh    'docker push pranaychander/nginx'
             }
         }
 
         stage('Deploy to nginx') {
             steps {  
-                sh    'docker run --name nginx${BUILD_NUMBER} -d -p 802${BUILD_NUMBER}:80 kankaranagendrareddy/nginx:${BUILD_NUMBER}'
+                sh    'docker run --name nginx${BUILD_NUMBER} -d -p 802${BUILD_NUMBER}:80 pranaychander/nginx'
             }
         }
 
         stage('Check WebApp Rechability') {
           steps {
-          sh ' curl http://54.90.121.120:802${BUILD_NUMBER}'
+          sh ' curl http://65.0.176.243:802${BUILD_NUMBER}'
           }
         }
       }
