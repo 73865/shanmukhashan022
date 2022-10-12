@@ -31,7 +31,7 @@ pipeline {
 
         stage('Check WebApp Rechability') {
           steps {
-          sh ' curl http://65.0.176.243:802${BUILD_NUMBER}'
+          sh 'curl http://65.0.176.243:802${BUILD_NUMBER}'
           }
         }
       }
