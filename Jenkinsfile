@@ -25,13 +25,13 @@ pipeline {
 
         stage('Deploy to nginx') {
             steps {  
-                sh    'docker run --name nginx${BUILD_NUMBER} -d -p 802${BUILD_NUMBER}:80 nginx'
+                sh    'docker run --name nginx${BUILD_NUMBER} -d -p 80${BUILD_NUMBER}:80 nginx'
             }
         }
 
         stage('Check WebApp Rechability') {
           steps {
-          sh 'curl http://65.0.176.243:802${BUILD_NUMBER}'
+          sh 'curl http://65.0.176.243:80${BUILD_NUMBER}'
           }
         }
       }
