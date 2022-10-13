@@ -4,7 +4,7 @@ pipeline {
         stage('Clone Repo') {
           steps {
             sh 'rm -rf shanmukhashan022'
-            sh 'git clone https://github.com/shanmukhashan022/shanmukhashan022.git'
+            sh 'git clone https://github.com/73865/shanmukhashan022.git'
             }
         }
 
